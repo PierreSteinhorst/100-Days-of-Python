@@ -1,5 +1,6 @@
 # Write your code below this line 👇
 def prime_checker(number):
+    """This method checks if a number is a prime number."""
     is_prime = True
     for i in range(2, number):
         if number % i == 0:
