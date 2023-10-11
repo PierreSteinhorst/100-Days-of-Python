@@ -12,7 +12,7 @@ def geometric_figure(object_turtle, num_site):
 
 def draw_geometric_figures(object_turtle, start_figure, end_figure):
     for _ in range(start_figure, end_figure + 1):
-        object_turtle.pencolor(choice(colors))
+        object_turtle.pencolor(random_color())
         geometric_figure(object_turtle, _)
 
 
@@ -31,8 +31,16 @@ def random_color():
     g = randint(0, 255)
     b = randint(0, 255)
     color_tuple = (r, g, b)
-
     return color_tuple
+
+
+def draw_spirograph(object_turtle, size_of_gap):
+    object_turtle.speed(30)
+
+    for _ in range(int(360 / size_of_gap)):
+        object_turtle.pencolor(random_color())
+        object_turtle.circle(100)
+        object_turtle.setheading(object_turtle.heading() + size_of_gap)
 
 
 # Tuple
@@ -45,7 +53,10 @@ turtle.colormode(255)
 tim.shape("turtle")
 tim.color("coral")
 
-random_walk(tim)
+draw_spirograph(tim, 5)
+
+
+# draw_spirograph(tim)
 
 
 # Draw a square
